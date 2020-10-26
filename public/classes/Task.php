@@ -36,12 +36,12 @@ class Task
 
     $file = $_FILES['file']['name'];
     $localFilePath = 'public/images/' . $file;
-    $fileFullPath = $_SERVER['DOCUMENT_ROOT'] . '/todo-app-oop-prod/public/images/' . $file;
-    $this->image = $localFilePath;
+    $fileFullPath = $_SERVER['DOCUMENT_ROOT'] . '/taskify/public/images/' . $file;
+
     if (move_uploaded_file($_FILES['file']['tmp_name'], $fileFullPath)) {
 
       // switch out localFilePath with fileFullPath on production
-
+      $this->image = $localFilePath;
     }
   }
 
