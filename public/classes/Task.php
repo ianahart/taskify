@@ -11,6 +11,7 @@ class Task
   private $completed;
   private $userId;
   private $days;
+  private $created_at;
 
 
 
@@ -22,6 +23,12 @@ class Task
   public function setDays($days)
   {
     $this->days = $days;
+  }
+
+  public function setCreatedAt()
+  {
+
+    $this->created_at = date('Y-m-d h-i-s ', time());
   }
 
   public function setTaskImage()
@@ -75,8 +82,8 @@ class Task
 
 
     try {
-      $sql = "INSERT INTO tasks(title, description, image, user_id, time_to_complete)
-    VALUES(:title, :description, :image, :user_id, :time_to_complete)";
+      $sql = "INSERT INTO tasks(title, description, image, user_id, time_to_complete, created_at)
+    VALUES(:title, :description, :image, :user_id, :time_to_complete, :created_at)";
 
       $stmt = $this->db->prepare($sql);
 
@@ -85,6 +92,7 @@ class Task
       $stmt->bindParam(':image', $this->image);
       $stmt->bindParam(':user_id', $this->userId);
       $stmt->bindParam(':time_to_complete', $this->seconds);
+      $stmt->bindParam(':created_at', $this->created_at);
 
       $stmt->execute();
     } catch (PDOException $e) {

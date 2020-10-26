@@ -41,6 +41,7 @@ if (isset($_POST['submit'])) {
     $task->setTaskDescription($taskDescription);
     $task->setTaskImage();
     $task->setDays($days);
+    $task->setCreatedAt();
 
 
 
