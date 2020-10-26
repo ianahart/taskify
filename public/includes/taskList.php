@@ -55,8 +55,8 @@
         <?php endif; ?>
         <?php if (isset($taskItem['image'])) : ?>
           <div class="task-image-container">
-            <img class="task0image" src="https://hart-taskify.s3.amazonaws.com/test.jpg" />
-            <!-- <img class="task-image" src="<?php echo htmlspecialchars($task->getTaskImage($taskItem['image'])); ?>" alt="<?php echo htmlspecialchars($taskItem['title']); ?>" /> -->
+            <!-- <img class="task0image" src="https://hart-taskify.s3.amazonaws.com/test.jpg" /> -->
+            <img class="task-image" src="<?php echo htmlspecialchars($task->getTaskImage($taskItem['image'])); ?>" alt="<?php echo htmlspecialchars($taskItem['title']); ?>" />
           </div>
         <?php endif; ?>
         <p><span class="marker">Title:</span><span class="title"><?php echo htmlspecialchars($taskItem['title']); ?></span></p>
