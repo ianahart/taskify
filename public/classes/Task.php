@@ -46,9 +46,12 @@ class Task
   //     $this->image = $localFilePath;
   //   }
   // }
-  public function setTaskImage($file)
+  public function setTaskImage()
   {
-    $this->image = $file;
+    if (isset($_FILES['userfile'])) {
+
+      $this->image = $_FILES['userfile']['tmp-name'];
+    }
   }
 
 

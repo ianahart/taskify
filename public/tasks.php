@@ -40,7 +40,7 @@ if (isset($_POST['submit'])) {
 
     $task->setTaskTitle($taskTitle);
     $task->setTaskDescription($taskDescription);
-    $task->setTaskImage($_FILES['userfile']['tmp-name']);
+    $task->setTaskImage();
     $task->setDays($days);
     $task->setCreatedAt();
 
