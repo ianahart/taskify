@@ -53,8 +53,12 @@ if (isset($_POST['submit'])) {
 
     if (isset($_FILES['userfile']) && is_uploaded_file($_FILES['userfile']['tmp_name'])) {
       try {
-
-        $upload = $s3->upload($bucket, $_FILES['userfile']['name'], fopen($_FILES['userfile']['tmp_name'], 'rb'), 'public-read');
+        $result = $s3->putObject([
+          'Bucket' => 'hart-taskify',
+          'Key'    => $_FILES['userfile']['name'],
+          'SourceFile' => $_FILES['userfile']['tmp_name']
+        ]);
+        // $upload = $s3->upload($bucket, $_FILES['userfile']['name'], fopen($_FILES['userfile']['tmp_name'], 'rb'), 'public-read');
       } catch (Exception $e) {
 
         echo "Error Uploading" . $e;
