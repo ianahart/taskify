@@ -67,7 +67,7 @@ class Task
       'version'  => '2006-03-01',
       'region'   => 'us-east-1',
     ]);
-    $result = $s3->putObject([
+    $result = $s3->getObject([
       'Bucket' => 'hart-taskify',
       'Key' => $key,
       'ACL'    => 'public-read',

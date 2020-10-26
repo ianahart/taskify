@@ -58,7 +58,6 @@ if (isset($_POST['submit'])) {
           'Key' => $_FILES['userfile']['name'],
           'ContentType' => 'image/jpeg'
         ]);
-        // $upload = $s3->upload($bucket, $_FILES['userfile']['name'], fopen($_FILES['userfile']['tmp_name'], 'rb'), 'public-read');
       } catch (Exception $e) {
 
         echo "Error Uploading" . $e;
