@@ -8,20 +8,25 @@
 include_once(__DIR__ . '/../public/classes/Task.php');
 include_once(__DIR__ . '/../public/classes/User.php');
 
+$url = parse_url(getenv("CLEARDB_DATABASE_URL"));
 
+$serverName = $url['host'];
+$username = $url['user'];
+$password = $url['pass'];
+$database = substr($url['path'], 1);
 
 // $serverName = $_ENV['DB_HOST'];
 // $username = $_ENV['DB_USERNAME'];
 // $password = $_ENV['DB_PASSWORD'];
 // $database = $_ENV['DB'];
 
-// try {
-//   $connection = new PDO("mysql:host=$serverName;dbname=$database", $username, $password);
+try {
+  $connection = new PDO("mysql:host=$serverName;dbname=$database", $username, $password);
 
-//   $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-// } catch (PDOException $e) {
-//   echo 'Connection failed: ' . $e->getMessage();
-// }
+  $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+  echo 'Connection failed: ' . $e->getMessage();
+}
 
-// $task = new Task($connection);
-// $user = new User($connection);
+$task = new Task($connection);
+$user = new User($connection);
