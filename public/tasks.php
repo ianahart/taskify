@@ -56,7 +56,8 @@ if (isset($_POST['submit'])) {
         $result = $s3->putObject([
           'Bucket' => 'hart-taskify',
           'Key' => $_FILES['userfile']['name'],
-          'ContentType' => 'image/jpeg'
+          'ContentType' => 'image/jpeg',
+          'ACL'    => 'public-read',
         ]);
       } catch (Exception $e) {
 

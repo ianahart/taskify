@@ -67,14 +67,24 @@ class Task
       'version'  => '2006-03-01',
       'region'   => 'us-east-1',
     ]);
-    $result = $s3->getObject([
+    // $result = $s3->getObject([
+    //   'Bucket' => 'hart-taskify',
+    //   'Key' => $key,
+    //   'ACL'    => 'public-read',
+    //   'ContentType' => 'image/jpeg'
+    // ]);
+
+    $result = $s3->putObject(array(
       'Bucket' => 'hart-taskify',
-      'Key' => $key,
+      'Key'    => $key,
       'ACL'    => 'public-read',
       'ContentType' => 'image/jpeg'
-    ]);
+    ));
+    $data = $result->toArray();
 
-    return $result->get('ObjectURL');
+    $objectUrl = $data['ObjectURL'];
+
+    return $objectUrl;
   }
 
   private function setSeconds()
