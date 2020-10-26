@@ -55,6 +55,7 @@
         <?php endif; ?>
         <?php if (isset($taskItem['image'])) : ?>
           <div class="task-image-container">
+            <p><?php echo htmlspecialchars($task->getTaskImage($taskItem['image'])); ?></p>
             <img class="task-image" src="<?php echo htmlspecialchars($task->getTaskImage($taskItem['image'])); ?>" alt="<?php echo htmlspecialchars($taskItem['title']); ?>" />
           </div>
         <?php endif; ?>
