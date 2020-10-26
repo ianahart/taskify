@@ -1,5 +1,7 @@
 <?php
+
 include(__DIR__ . '/../../config/db.php');
+
 
 class Task
 {
@@ -31,19 +33,25 @@ class Task
     $this->created_at = date('Y-m-d h-i-s ', time());
   }
 
-  public function setTaskImage()
+  // public function setTaskImage()
+  // {
+
+  //   $file = $_FILES['file']['name'];
+  //   $localFilePath = 'public/images/' . $file;
+  //   $fileFullPath = $_SERVER['DOCUMENT_ROOT'] . '/taskify/public/images/' . $file;
+
+  //   if (move_uploaded_file($_FILES['file']['tmp_name'], $fileFullPath)) {
+
+  //     // switch out localFilePath with fileFullPath on production
+  //     $this->image = $localFilePath;
+  //   }
+  // }
+  public function uploadTaskImage()
   {
-
-    $file = $_FILES['file']['name'];
-    $localFilePath = 'public/images/' . $file;
-    $fileFullPath = $_SERVER['DOCUMENT_ROOT'] . '/taskify/public/images/' . $file;
-
-    if (move_uploaded_file($_FILES['file']['tmp_name'], $fileFullPath)) {
-
-      // switch out localFilePath with fileFullPath on production
-      $this->image = $localFilePath;
-    }
   }
+
+
+
 
   private function setSeconds()
   {

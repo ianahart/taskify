@@ -21,7 +21,7 @@
           <i class="fas fa-upload upload-icon"></i>
           <i class="fas fa-plus upload-plus-icon hidden"></i>
           <label for="upload">Choose an image or drag it here</label>
-          <input id="upload" class="upload-input" type="file" name="file" />
+          <input id="upload" class="upload-input" type="file" name="userfile" />
         </div>
       </div>
     </div>

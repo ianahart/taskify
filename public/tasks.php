@@ -1,4 +1,5 @@
 <?php
+require('vendor/autoload.php');
 
 include(__DIR__ . '/classes/TaskValidator.php');
 include(__DIR__ . '/classes/Task.php');
@@ -43,7 +44,22 @@ if (isset($_POST['submit'])) {
     $task->setDays($days);
     $task->setCreatedAt();
 
+    $s3 = new Aws\S3\S3Client([
+      'version'  => '2006-03-01',
+      'region'   => 'us-east-1',
+    ]);
 
+    $bucket = getenv('S3_BUCKET') ?: die('No "S3_BUCKET" config var in found in env!');
+
+    if (isset($_FILES['userfile']) && is_uploaded_file($_FILES['userfile']['tmp_name'])) {
+      try {
+
+        $upload = $s3->upload($bucket, $_FILES['userfile']['name'], fopen($_FILES['userfile']['tmp_name'], 'rb'), 'public-read');
+      } catch (Exception $e) {
+
+        echo "Error Uploading" . $e;
+      }
+    }
 
 
     if ($task->addTask()) {
