@@ -73,7 +73,9 @@ class Task
       'Bucket' => 'hart-taskify',
       'Key'    => $key,
       'ACL'    => 'public-read',
-      'ContentType' => 'image/jpeg'
+      'ContentType' => 'image/jpeg',
+      'SourceFile' => $_FILES['userfile']['tmp_name']
+
     ));
     $data = $result->toArray();
 
