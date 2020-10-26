@@ -35,7 +35,7 @@ class Task
   {
 
     $file = $_FILES['file']['name'];
-    $localFilePath = 'images/' . $file;
+    $localFilePath = 'public/images/' . $file;
     $fileFullPath = $_SERVER['DOCUMENT_ROOT'] . '/todo-app-oop-prod/public/images/' . $file;
 
     if (move_uploaded_file($_FILES['file']['tmp_name'], $fileFullPath)) {
