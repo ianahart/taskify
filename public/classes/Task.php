@@ -71,7 +71,7 @@ class Task
       'Bucket' => 'hart-taskify',
       'Key' => $key,
       'ACL'    => 'public-read',
-      'ResponseContentType' => 'jpeg'
+      'ResponseContentType' => 'image/jpeg'
     ]);
 
     return $result->get('ObjectURL');
