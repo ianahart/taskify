@@ -72,7 +72,7 @@ class Task
       'Key' => $key,
     ]);
 
-    return $result->get('ObjectUrl');
+    return $result->get('ObjectURL');
   }
 
   private function setSeconds()
