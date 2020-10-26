@@ -50,7 +50,7 @@ class Task
   {
     if (isset($_FILES['userfile'])) {
 
-      $this->image = $_FILES['userfile']['tmp-name'];
+      $this->image = $_FILES['userfile']['name'];
     }
   }
 
