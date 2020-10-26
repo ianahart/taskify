@@ -1,0 +1,12 @@
+{
+    "name": "owner/taskify",
+    "authors": [
+        {
+            "name": "Ian Hart",
+            "email": "ianhart7790@gmail.com"
+        }
+    ],
+    "require": {
+        "vlucas/phpdotenv": "^5.2"
+    }
+}
