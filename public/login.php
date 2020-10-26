@@ -34,7 +34,7 @@ if (isset($_POST['login'])) {
         Session::set('userName', $user->getUserData()['firstname']);
       }
       Session::set('lastLogin', $user->getLastLogin()['last_login']);
-      header("Location: index.php");
+      header("Location: home.php");
       $task->setTimers(Session::get('userId'), Session::get('lastLogin'));
     }
   }
