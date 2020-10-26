@@ -52,11 +52,17 @@ if (isset($_POST['submit'])) {
     $bucket = getenv('S3_BUCKET') ?: die('No "S3_BUCKET" config var in found in env!');
 
     if (isset($_FILES['userfile']) && is_uploaded_file($_FILES['userfile']['tmp_name'])) {
+
+      $tmpFile = $_FILES['userfile']['tmp_name'];
+      $imageType = $_FILES['file']['type'];
+
       try {
         $result = $s3->putObject([
           'Bucket' => 'hart-taskify',
           'Key'    => $_FILES['userfile']['name'],
-          'Body' => file_get_contents($_FILES['userfile']['tmp_name'])
+          'Body' => fopen($tmpFile, 'r'),
+          'ContentType' => $imageType,
+          'StorageClass' => 'STANDARD'
 
         ]);
         // $upload = $s3->upload($bucket, $_FILES['userfile']['name'], fopen($_FILES['userfile']['tmp_name'], 'rb'), 'public-read');
