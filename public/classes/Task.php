@@ -70,10 +70,7 @@ class Task
       'region'   => 'us-east-1',
     ]);
 
-    // $result = $s3->getObject([
-    //   'Bucket' => 'hart-taskify',
-    //   'Key' => $key
-    // ])
+
     // $result = $s3->putObject(array(
     //   'Bucket' => 'hart-taskify',
     //   'Key'    => $key,
@@ -82,6 +79,11 @@ class Task
     //   'Body' => file_get_contents($_FILES['userfile']['tmp_name'])
 
     // ));
+    $result = $s3->getObject(array(
+      'Bucket' => 'hart-taskify',
+      'Key' => $key,
+
+    ));
     $data = $result->toArray();
 
     $objectUrl = $data['ObjectURL'];
