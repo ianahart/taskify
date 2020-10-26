@@ -1,5 +1,10 @@
 <?php
 
+require 'vendor/autoload.php';
+
+use Aws\S3\S3Client;
+use Aws\S3\Exception\S3Exception;
+
 include(__DIR__ . '/../../config/db.php');
 
 
@@ -55,7 +60,20 @@ class Task
   }
 
 
+  public function getTaskImage($key)
+  {
 
+    $s3 = new Aws\S3\S3Client([
+      'version'  => '2006-03-01',
+      'region'   => 'us-east-1',
+    ]);
+    $result = $s3->getObject([
+      'Bucket' => 'hart-taskify',
+      'Key' => $key,
+    ]);
+
+    return $result->get('ObjectUrl');
+  }
 
   private function setSeconds()
   {
