@@ -51,6 +51,8 @@ class Task
   //     $this->image = $localFilePath;
   //   }
   // }
+
+
   public function setTaskImage()
   {
     if (isset($_FILES['userfile'])) {
@@ -68,15 +70,18 @@ class Task
       'region'   => 'us-east-1',
     ]);
 
+    // $result = $s3->getObject([
+    //   'Bucket' => 'hart-taskify',
+    //   'Key' => $key
+    // ])
+    // $result = $s3->putObject(array(
+    //   'Bucket' => 'hart-taskify',
+    //   'Key'    => $key,
+    //   'ACL'    => 'public-read',
+    //   'ContentType' => 'image/jpeg',
+    //   'Body' => file_get_contents($_FILES['userfile']['tmp_name'])
 
-    $result = $s3->putObject(array(
-      'Bucket' => 'hart-taskify',
-      'Key'    => $key,
-      'ACL'    => 'public-read',
-      'ContentType' => 'image/jpeg',
-      'Body' => file_get_contents($_FILES['userfile']['tmp_name'])
-
-    ));
+    // ));
     $data = $result->toArray();
 
     $objectUrl = $data['ObjectURL'];
