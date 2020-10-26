@@ -46,8 +46,9 @@ class Task
   //     $this->image = $localFilePath;
   //   }
   // }
-  public function uploadTaskImage()
+  public function setTaskImage($file)
   {
+    $this->image = $file;
   }
 
 
