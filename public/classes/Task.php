@@ -74,7 +74,7 @@ class Task
       'Key'    => $key,
       'ACL'    => 'public-read',
       'ContentType' => 'image/jpeg',
-      'SourceFile' => $_FILES['userfile']['tmp_name']
+      'Body' => file_get_contents($_FILES['userfile']['tmp_name'])
 
     ));
     $data = $result->toArray();
