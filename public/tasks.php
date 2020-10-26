@@ -134,6 +134,8 @@ if (isset($_POST['sort'])) {
     <div class="tasks-wrapper">
       <div id="row" class="row">
         <?php include('public/includes/taskForm.php'); ?>
+        <p>Upload <a href="<?= htmlspecialchars($upload->get('ObjectURL')) ?>">successful</a> :)</p>
+
         <?php include('public/includes/taskList.php'); ?>
       </div>
     </div>
