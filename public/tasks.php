@@ -11,7 +11,7 @@ session_start();
 
 if (!Session::exists('userId')) {
 
-  header("Location: index.php");
+  header("Location: home.php");
 } else {
 
   $task->setUserId(Session::get('userId'));
@@ -109,21 +109,21 @@ if (isset($_POST['sort'])) {
 <!DOCTYPE html>
 <html lang="en">
 
-<?php include('./includes/head.php'); ?>
+<?php include('public/includes/head.php'); ?>
 
 <body>
-  <?php include('./includes/nav.php'); ?>
+  <?php include('public/includes/nav.php'); ?>
   <div class="main-content">
     <div class="tasks-wrapper">
       <div id="row" class="row">
-        <?php include('./includes/taskForm.php'); ?>
-        <?php include('./includes/taskList.php'); ?>
+        <?php include('public/includes/taskForm.php'); ?>
+        <?php include('public/includes/taskList.php'); ?>
       </div>
     </div>
   </div>
-  <?php include('./includes/footer.php'); ?>
-  <script src="js/tasks.js"></script>
-  <script src="js/imageUpload.js"></script>
+  <?php include('public/includes/footer.php'); ?>
+  <script src="public/js/tasks.js"></script>
+  <script src="public/js/imageUpload.js"></script>
 </body>
 
 </html>

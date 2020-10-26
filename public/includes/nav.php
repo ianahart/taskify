@@ -8,7 +8,7 @@ include_once(__DIR__ . '/../classes/Session.php');
     <h2><i class="fas fa-pencil-alt"></i> Taskify</h2>
   </div>
   <ul>
-    <li><a href="index.php">Home</a></li>
+    <li><a href="home.php">Home</a></li>
     <?php if (Session::exists('userId')) : ?>
       <li><a href="tasks.php">Tasks</a></li>
       <li><a href="logout.php">Logout</a></li>

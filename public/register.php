@@ -6,7 +6,7 @@ include(__DIR__ . '/classes/Session.php');
 session_start();
 
 if (Session::exists('userId')) {
-  header("Location: index.php");
+  header("Location: home.php");
 }
 
 if (isset($_POST['signup'])) {
@@ -47,10 +47,10 @@ if (isset($_POST['signup'])) {
 <!DOCTYPE html>
 <html lang="en">
 
-<?php include('./includes/head.php'); ?>
+<?php include('public/includes/head.php'); ?>
 
 <body>
-  <?php include('./includes/nav.php'); ?>
+  <?php include('public/includes/nav.php'); ?>
   <div class="main-content">
     <div class="register-form-container">
       <form action="register.php" method="POST">
@@ -94,7 +94,7 @@ if (isset($_POST['signup'])) {
       </form>
     </div>
   </div>
-  <?php include('./includes/footer.php'); ?>
+  <?php include('public/includes/footer.php'); ?>
 </body>
 
 </html>
