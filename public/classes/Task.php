@@ -71,24 +71,14 @@ class Task
     ]);
 
 
-    // $result = $s3->putObject(array(
-    //   'Bucket' => 'hart-taskify',
-    //   'Key'    => $key,
-    //   'ACL'    => 'public-read',
-    //   'ContentType' => 'image/jpeg',
-    //   'Body' => file_get_contents($_FILES['userfile']['tmp_name'])
-
-    // ));
-    $result = $s3->getObject(array(
+    $result = $s3->putObject(array(
       'Bucket' => 'hart-taskify',
-      'Key' => $key,
+      'Key'    => $key,
 
+      'ACL'    => 'public-read',
     ));
     $data = $result->toArray();
-
-    $objectUrl = $data['ObjectURL'];
-
-    return $objectUrl;
+    $object_url = $data['ObjectURL'];
   }
 
   private function setSeconds()
