@@ -61,11 +61,10 @@ if (isset($_POST['submit'])) {
           'Bucket' => 'hart-taskify',
           'Key'    => $_FILES['userfile']['name'],
           'Body' => fopen($tmpFile, 'r'),
-          'ContentType' => $imageType,
+          'ContentType' => 'image/jpeg',
           'StorageClass' => 'STANDARD'
 
         ]);
-        // $upload = $s3->upload($bucket, $_FILES['userfile']['name'], fopen($_FILES['userfile']['tmp_name'], 'rb'), 'public-read');
       } catch (Exception $e) {
 
         echo "Error Uploading" . $e;
