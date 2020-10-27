@@ -71,14 +71,8 @@ class Task
     ]);
 
 
-    $result = $s3->putObject(array(
-      'Bucket' => 'hart-taskify',
-      'Key'    => $key,
-
-      'ACL'    => 'public-read',
-    ));
-    $data = $result->toArray();
-    $object_url = $data['ObjectURL'];
+    $url = $s3->getObjectUrl('hart-taskify', $key);
+    return $url;
   }
 
   private function setSeconds()
