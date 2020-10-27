@@ -72,7 +72,7 @@ class Task
 
 
     $url = $s3->getObjectUrl('hart-taskify', $key);
-    return $url;
+    return imagecreatefromstring($url);
   }
 
   private function setSeconds()
